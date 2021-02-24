@@ -1,0 +1,12 @@
+- name: entrypoint
+  hosts: localhost
+  tasks:
+    - name: "Debug first message"
+      debug:
+        msg: "first message"
+    - name: "Pause for 5 Seconds"
+      pause:
+        seconds: 5
+    - name: "Debug second message"
+      debug:
+        msg: "second message"
