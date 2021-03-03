@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+
 	gar "github.com/mkyc/go-ansible-runner"
 )
 
@@ -48,6 +49,7 @@ func main() {
 		AnsibleRunnerDir: "./tests",
 		Playbook:         "test1.yml",
 		Ident:            "r1",
+		LogsLevel:        gar.L6,
 		Logger:           SimpleLogger{},
 	}
 
