@@ -49,7 +49,7 @@ func main() {
 		AnsibleRunnerDir: "./tests",
 		Playbook:         "test1.yml",
 		Ident:            "r1",
-		LogsLevel:        gar.L6,
+		LogsLevel:        gar.L0,
 		Logger:           SimpleLogger{},
 	}
 

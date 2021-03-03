@@ -3,7 +3,8 @@ package gar
 type LogsLevel int
 
 const (
-	L1 LogsLevel = iota
+	L0 LogsLevel = iota
+	L1
 	L2
 	L3
 	L4
