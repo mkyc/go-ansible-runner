@@ -4,9 +4,9 @@
     - name: "Debug first message"
       debug:
         msg: "first message"
-    - name: "Pause for 5 Seconds"
+    - name: "Pause for 2 Seconds"
       pause:
-        seconds: 5
+        seconds: 2
     - name: "Debug second message"
       debug:
         msg: "second message"
