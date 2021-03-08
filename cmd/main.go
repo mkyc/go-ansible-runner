@@ -1,6 +1,7 @@
 package main
 
 import (
+	"encoding/json"
 	"fmt"
 
 	gar "github.com/mkyc/go-ansible-runner"
@@ -57,7 +58,7 @@ func main() {
 	println("=== run ========")
 	println("================")
 
-	s, err := gar.Run(opts)
+	ident, err := gar.Run(opts)
 	if err != nil {
 		panic(err)
 	}
@@ -65,8 +66,64 @@ func main() {
 	println("================")
 	println("=== run = end ==")
 	println("================")
+	println("==== ident =====")
+	println("================")
 
-	println(s)
+	println(ident)
+
+	println("================")
+	println("==== rc ========")
+	println("================")
+
+	rc, status, err := gar.GetStatus(opts)
+	if err != nil {
+		panic(err)
+	}
+
+	println(rc)
+
+	println("================")
+	println("==== status ====")
+	println("================")
+
+	println(status)
+
+	println("================")
+	println("==== recap  ====")
+	println("================")
+
+	pr, err := gar.GetPlayRecap(opts)
+	if err != nil {
+		panic(err)
+	}
+
+	s, err := json.MarshalIndent(pr, "", "\t")
+	if err != nil {
+		panic(err)
+	}
+	println(string(s))
+
+	println("================")
+	println("==== count =====")
+	println("================")
+
+	c := gar.Count(*pr)
+	cj, err := json.MarshalIndent(c, "", "\t")
+	if err != nil {
+		panic(err)
+	}
+	println(string(cj))
+
+	println("================")
+	println("==== output ====")
+	println("================")
+
+	output, err := gar.GetOutput(opts)
+	if err != nil {
+		panic(err)
+	}
+
+	println(string(output))
 
 	println("================")
 	println("=== end ========")

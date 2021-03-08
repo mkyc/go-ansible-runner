@@ -28,9 +28,7 @@ func generateCommand(options Options, args ...string) Command {
 	}
 }
 
-func runAnsibleRunnerCommand(originalOptions Options, additionalArgs ...string) (string, error) {
-	options, args := getCommonOptions(originalOptions, additionalArgs...)
-
+func runAnsibleRunnerCommand(options Options, args ...string) (string, error) {
 	cmd := generateCommand(options, args...)
 	description := fmt.Sprintf("%s %v", options.AnsibleRunnerBinary, args)
 	return runCommandAndGetOutput(description, cmd)
